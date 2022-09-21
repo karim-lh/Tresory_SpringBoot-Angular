@@ -1,0 +1,68 @@
+<meta charset="utf-8">
+<div class="container">
+	<div class="row">
+ <div class="col-lg-2">
+					<button class="btn btn-primary" ui-sref="recette.mouvementRecette.new" >
+						<span class="glyphicon glyphicon-plus"> ajout</span>
+					</button>
+				</div>
+
+</div>
+  <div class="row">
+     
+       <div class="col-lg-10 col-md-10">
+         <section class="panel">
+                          <header class="panel-heading">
+<!--                              liste des bs des comptes -->
+                          </header>
+                          
+                          <table class="table table-striped table-advance table-hover">
+                          <thead>
+                          <tr>
+                          <th>#</th>
+                          <th>Num</th>
+                          <th>Libellé</th>
+                          <th>Date recette </th>
+                          <th>Client </th>
+                          <th>Montant</th>
+                          <th>Devise</th>
+                          <th>Actions</th>
+                          
+                          </tr>
+                          </thead>
+                          
+                           <tbody>
+                                 <tr>
+                             <td></td>
+                             <td> <input type="text" ng-model="idMouvement" class="form-control" size="2"></td>
+                             </tr>
+                              <tr ng-repeat="recette in ctrl.recettes | filter: {'idMouvement':idMouvement}">
+                                 <td>{{$index +1}}</td>
+                                <td>{{recette.idMouvement}}</td>
+                                <td>{{recette.libelleMouvement}}</td>
+							<td>{{recette.dateMouvement}}</td>
+							<td>{{recette.tiers.idanttifiant}}</td>
+							<td>{{recette.montantTaxe |number :3}}</td>
+							<td>{{recette.devise.libelleDevise}}</td>
+
+                                
+                                
+                                 <td class="text-left">
+							<div class="btn-group flex-btn-group-container">
+								<button type="submit" 
+									class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-zoom-in"></span> <span
+										class="hidden-xs hidden-sm"></span>
+								</button>
+								
+							</div>
+						</td>
+                            </tr>
+                           </tbody>
+                        </table>
+                      </section>
+       
+       </div>
+     
+
+</div>

@@ -1,0 +1,63 @@
+
+<div class=container>
+
+
+ 
+  <div class="row">
+     
+       <div class="col-lg-10 col-md-10">
+         <section class="panel">
+                          <header class="panel-heading">
+<!--                              liste des fluxs des comptes -->
+                          </header>
+                          
+                          <table class="table table-striped table-advance table-hover">
+                          <thead>
+                          <tr>
+                          <th>#</th>
+                          <th>Num cheque</th>
+                          <th>situation </th>
+                          <th>date cheque  </th>
+                          <th> date signature</th>
+                          <th>date livrison</th>
+                          <th>benificaire</th>
+                          <th>montant</th>
+                          <th>num mouvement</th>
+                          <th>num reglement</th>
+                          
+                          <th>Actions</th>
+                          
+                          </tr>
+                          </thead>
+                          
+                           <tbody>
+                             
+                              <tr ng-repeat="flux in ctrl.cheques">
+                                 <td>{{$index +1}}</td>
+                                 <td>{{flux.codeFlux}}</td>
+                                  <td>{{flux.libelleFlux}}</td>
+                                  <th>{{flux.dateCreation}}</th>
+                                 <td class="text-left">
+							<div class="btn-group flex-btn-group-container">
+								<button type="submit" 
+									class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-pencil"></span> <span
+										class="hidden-xs hidden-sm"></span>
+								</button>
+								<button class="btn btn-danger btn-sm"
+									ui-sref="flux.delete({id:flux.idFlux})">
+									<span class="glyphicon glyphicon-remove-circle"></span> <span
+										class="hidden-xs hidden-sm"></span>
+								</button>
+							</div>
+						</td>
+                            </tr>
+                           </tbody>
+                        </table>
+                      </section>
+       
+       </div>
+     
+     
+     </div>
+  

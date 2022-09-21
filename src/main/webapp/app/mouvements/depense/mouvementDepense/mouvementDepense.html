@@ -1,0 +1,71 @@
+<meta charset="utf-8">
+<div class="container">
+	<div class="row">
+ <div class="col-lg-2">
+					<button class="btn btn-primary" ui-sref="depense.mouvementDepense.new" >
+						<span class="glyphicon glyphicon-plus"> ajout</span>
+					</button>
+				</div>
+
+</div>
+  <div class="row">
+     
+       <div class="col-lg-11 col-md-11">
+         <section class="panel">
+                          <header class="panel-heading">
+<!--                              liste des bs des comptes -->
+                          </header>
+                          
+                          <table class="table table-striped table-advance table-hover">
+                          <thead>
+                          <tr>
+                          <th>#</th>
+                          <th>Num</th>
+                          <th>Libellé</th>
+                          <th>Date depense </th>
+                          <th> Demandeur</th>
+                          <th>Montant HT</th>
+                          <th> Montant Taxe</th>
+                          <th>Devise</th>
+                          <th>sold</th>
+                          <th>Actions</th>
+                          
+                          </tr>
+                          </thead>
+                          
+                           <tbody>
+                             <tr>
+                             <td></td>
+                             <td> <input type="text" ng-model="idMouvement" class="form-control" size="2"></td>
+                             </tr>
+                              <tr ng-repeat="depense in ctrl.depenses | filter: {'idMouvement':idMouvement}">
+                                 <td>{{$index +1}}</td>
+                                <td>{{depense.idMouvement}}</td>
+                                <td>{{depense.libelleMouvement}}</td>
+							<td>{{depense.dateMouvement}}</td>
+							<td>{{depense.demandeur}}</td>
+							<td>{{depense.montantHT|number :3}}</td>
+							<td>{{depense.montantTaxe |number :3}}</td>
+							<td>{{depense.devise.libelleDevise}}</td>
+
+                                 <td>{{depense.sold|number :3 + ctrl.devise.symbole}}</td>
+                                
+                                 <td class="text-left">
+							<div class="btn-group flex-btn-group-container">
+								<button type="submit" 
+									class="btn btn-primary btn-sm" ui-sref="depense.mouvementDepense.detail({id:depense.idMouvement})">
+									<span class="glyphicon glyphicon-zoom-in"></span> <span
+										class="hidden-xs hidden-sm"></span>
+								</button>
+								
+							</div>
+						</td>
+                            </tr>
+                           </tbody>
+                        </table>
+                      </section>
+       
+       </div>
+     </div>
+
+</div>

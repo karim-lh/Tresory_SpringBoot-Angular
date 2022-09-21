@@ -1,0 +1,18 @@
+{
+ "mvt":"Mouvements",
+ "dep":"depenses",
+ "rec":"recettes",
+ "par":"parametrages",
+ "flux":"flux de tresorerie",
+ "fam":"familles des comptes",
+ "comp":"compte tresorerie",
+ "tiers":"les tiers",
+ "banq":"les banques",
+ "agc":"agence banquaire",
+ "journ":"journaux",
+ "dev":"devises",
+ "das":"dashboard",
+ "tre":"tresorerie",
+ "b":"Bienvenue!"
+ 
+}

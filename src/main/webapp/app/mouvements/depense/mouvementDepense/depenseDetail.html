@@ -1,0 +1,146 @@
+
+<meta charset="utf-8">
+<form name="editForm" role="form" novalidate ng-submit="ctrl.save()"
+	show-validation>
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+		<h4 class="modal-title" id="myUserLabel">ajoute d'une depense</h4>
+	</div>
+
+	<div class="modal-body">
+	<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Information mouvement</legend>
+		<div class="row">
+			<div class="form-group col-lg-10 ">
+				<label>libelle depense</label> <input class="form-control"
+					type="text" ng-model="ctrl.mouvementDepense.libelleMouvement" readOnly> 
+			</div>
+		</div>
+
+		<div class="row">
+
+
+			<div class="form-group col-lg-4">
+				<label>type mouvement</label> <input type="text" class="form-control" value="depense" readOnly>
+			</div>
+
+<div class="form-group col-lg-4 ">
+				<label>numero mouvement</label> <input class="form-control"
+					type="text" ng-model="ctrl.mouvementDepense.numMouvement">
+			</div>
+			
+</div>
+
+<div class="row">
+
+
+			
+
+
+			<div class="form-group col-lg-4 ">
+				<label>date mouvement</label> <input class="form-control"
+					type="text" ng-model="ctrl.mouvementDepense.dateMouvement" readOnly>
+			</div>
+
+		</div>
+
+
+		<div class="row">
+
+			<div class="form-group col-lg-4">
+				<label>benificiare</label> >
+
+					<input type="text" ng-model="tiers.prenomPersonne
+						+" "+tiers.nomPersonne}}{{tiers.nomSociete">
+			
+			</div>
+
+			
+
+		</div>
+
+		<div class="row">
+
+			<div class="form-group col-lg-6 ">
+				<label>compte de trésorerie</label> <select
+					ng-model="ctrl.mouvementDepense.compteTresorerie.idCompteTresorerie"
+					class="form-control">
+					<option ng-repeat="compte in ctrl.comptes"
+						value="{{compte.idCompteTresorerie}}">{{compte.libelle}}</option>
+				</select>
+			</div>
+			<div class="form-group col-lg-6 ">
+				<label>flux</label> <select
+					ng-model="ctrl.mouvementDepense.fluxTresorerie.idFluxTresorerie"
+					class="form-control">
+					<option ng-repeat="f in ctrl.fluxs" value="{{f.idFluxTresorerie}}">{{f.libelleFluxTresorerie}}</option>
+				</select>
+			</div>
+
+		</div>
+
+
+
+
+
+
+
+		<div class="row">
+			<div class="form-group col-lg-4">
+				<label>montant</label> <input type="text"
+					ng-model="ctrl.mouvementDepense.montantMouvement"
+					class="form-control">
+			</div>
+			<div class="form-group col-lg-5 col-lg-offset-2">
+				<label>devise</label> <select
+					ng-model="ctrl.mouvementDepense.devise.idDevise"
+					class="form-control">
+					<option ng-repeat="devise in ctrl.devises"
+						value="{{devise.idDevise}}">{{devise.libelleDevise}}</option>
+				</select>
+			</div>
+</div>
+<div class="row">
+
+			<div class="form-group col-lg-3">
+				<label>taux de change</label> <input type="text"
+					ng-model="ctrl.montantMouvement.tauxChangeMouvement"
+					class="form-control">
+			</div>
+
+		</div>
+
+</fieldset>
+
+<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Pieces jointes</legend>
+		<div class="row">
+			<div class="form-group col-lg-3">
+				<label class="control-label">piece jointe</label> <input
+					id="input-2" name="input2[]" type="file" class="file" multiple
+					data-show-upload="false" data-show-caption="true">
+			</div>
+
+
+		</div>
+
+</fieldset>
+
+
+
+	</div>
+
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="ctrl.cancel()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Quitter</span>
+		</button>
+		<button type="submit" ng-disabled="ctrl.isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Envoyer</span>
+		</button>
+	</div>
+</form>
+

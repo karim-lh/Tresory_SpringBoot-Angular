@@ -1,0 +1,149 @@
+<form name="editForm" role="form" novalidate ng-submit="ctrl.save()"
+	show-validation>
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+		<h4 class="modal-title" id="myUserLabel">ajoute d'un tiers</h4>
+	</div>
+
+
+	<div class="modal-body">
+		<div class="row">
+
+
+			<div class="form-groue col-lg-7">
+				<label>Forme juridique</label> <select ng-model="ctrl.form"
+					class="form-control" ng-change="ctrl.test()">
+					<option value="PM">personne morale</option>
+					<option value="PH">personne Physique</option>
+
+				</select>
+
+			</div>
+
+
+		</div>
+		<!-- 	on va animer l'affichage : si l fournisseur chosi est un PM -->
+		<!-- 	 : (affiché seulement les chaps des PM ) et le mmem pour PH -->
+		<!-- 	 d abord regrouper les champs commun  matricule : num tel email adresse-->
+
+
+		<div id="PM" style="display: none"">
+			<div class="row">
+				<div class="form-group col-lg-5">
+					<label>matricule faiscale</label> <input type="text"
+						class="form-control" name="code"
+						ng-model="ctrl.fournisseur.matriculeFaiscale">
+				</div>
+
+				<div class="form-group col-lg-5">
+					<label>idantifiant societe</label> <input type="text"
+						class="form-control" name="code"
+						ng-model="ctrl.fournisseur.nomSociete">
+				</div>
+
+
+				<div class="form-group col-lg-5">
+					<label>email </label> <input type="text" class="form-control"
+						name="code" ng-model="ctrl.fournisseur.emailContact">
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<div id="PH" style="display: none">
+			<div class="row">
+
+				<div class="form-group col-lg-5 ">
+					<label>nom tiers</label> <input type="text" class="form-control"
+						name="code" ng-model="ctrl.fournisseur.nomPersonne">
+				</div>
+
+
+
+				<div class="form-group col-lg-5">
+					<label>prenom tiers</label> <input type="text" class="form-control"
+						name="code" ng-model="ctrl.fournisseur.prenomPersonne">
+				</div>
+
+				<div class="form-group col-lg-5">
+					<label>email </label> <input type="text" class="form-control"
+						name="code" ng-model="ctrl.fournisseur.emailPersonne">
+				</div>
+
+				<div class="form-group col-lg-5">
+					<label>sexe</label> <select ng-model="ctrl.fournisseur.sexe"
+						class="form-control">
+						<option value="male">male</option>
+						<option value="female">female</option>
+
+					</select>
+				</div>
+
+				<div class="form-group col-lg-5">
+					<label>cin</label> <input type="text" class="form-control"
+						name="code" ng-model="ctrl.fournisseur.cinTiers">
+				</div>
+
+
+			</div>
+		</div>
+
+		<div class="row" id="com" style="display: none">
+
+
+			<div class="form-group col-lg-5">
+				<label>numero telephone</label> <input type="text"
+					class="form-control" name="code" ng-model="ctrl.fournisseur.numTel">
+			</div>
+
+
+			<div class="form-group col-lg-5">
+				<label>matricule</label> <input type="text" class="form-control"
+					name="code" ng-model="ctrl.fournisseur.matricule">
+			</div>
+
+			<div class="form-group col-lg-5">
+				<label>adresse</label> <input type="text" class="form-control"
+					name="code" ng-model="ctrl.fournisseur.adresseFournisseur">
+			</div>
+
+			<div class="form-group col-lg-5">
+
+				<label>type tiers</label> <select
+					ng-model="ctrl.fournisseur.typeTiers" class="form-control">
+					<option value="fournisseur">fournisseur</option>
+					<option value="client">client</option>
+					<option valuen="clientfournisseur">client/fournisseur</option>
+				</select>
+
+			</div>
+
+
+		</div>
+
+
+
+	</div>
+	<!--   maintenant les champs variables : depend de la forme juridique -->
+	<!--   1 personne physique -->
+
+
+	<!--     et finallement les champs de PM -->
+
+
+
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="ctrl.cancel()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Quitter</span>
+		</button>
+		<button type="submit" ng-disabled="ctrl.isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Enregister</span>
+		</button>
+	</div>
+</form>

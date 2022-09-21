@@ -1,0 +1,255 @@
+<meta charset="utf-8">
+<form name="editForm" role="form" novalidate ng-submit="ctrl.save()"
+	show-validation>
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+		<h4 class="modal-title" id="myUserLabel">demande num
+			{{ctrl.demande.taskId}}</h4>
+	</div>
+ 
+	<div class="modal-body">
+
+		
+		<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Information mouvement</legend>
+				<div class="row">
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label">Numero</label>
+				
+				<div class="col-lg-4">
+					<input type="text" class="form-control" value="{{ctrl.demande.mouvement.numMouvement}}" readOnly>
+				
+				</div>
+			
+				</div>
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label" >Libellé </label>
+				<div class="col-lg-8">
+				 <input type="text" class="form-control" value="{{ctrl.demande.mouvement.libelleMouvement}}" readOnly>
+				</div>
+				
+				
+				</div>
+				
+						
+				</div>
+				
+				<div class="row">
+				
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label" >Type </label>
+				
+				<div class="col-lg-5">
+				<input type="text" class="form-control" value="{{ctrl.demande.mouvement.typeMouvement}}" readOnly>
+				</div>
+				
+				</div>	
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label">Date</label>
+				<div class="col-lg-5">
+				<input type="text" class="form-control" value="{{ctrl.demande.mouvement.dateMouvement}}" readOnly>
+				
+				</div>
+				
+				</div>
+				
+				</div>
+				
+				<div class="row">
+				<div class="form-group col-lg-6 row">
+				<label  class="col-lg-4 col-form-label" >Montant Hors Taxe</label>
+				<div class="col-lg-5">
+				<input type="text" class="form-control" value="{{ctrl.demande.mouvement.montantHT}}" readOnly>
+				
+				</div>
+				</div>
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label">Montant Taxe</label>
+				<div class="col-lg-5">
+				<input type="text" class="form-control" value="{{ctrl.demande.mouvement.montantTaxe}}" readOnly>
+				</div>
+				</div>
+				
+				<div class="form-group col-lg-6 row">
+				<label  class="col-lg-4 col-form-label">Taux De Change</label>
+				<div class="col-lg-3">
+				<input type="text" class="form-control" value="{{ctrl.demande.mouvement.tauxChangeMouvement}}" readOnly>
+				
+				</div>
+				
+				</div>
+				</div>
+				
+				</fieldset>
+		
+		
+
+		
+		<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Information Demande</legend>
+				<div class="row">
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label" >Date Creation </label>
+				<div class="col-lg-8">
+				<input type="text" class="form-control" value="{{ctrl.demande.dateCreation}}" readOnly>
+				
+				</div>
+				
+				</div>
+				<div class="form-group col-lg-6 row">
+				<label  class="col-lg-4 col-form-label">Initiateur</label>
+				<div class="col-lg-8">
+				<input type="text" class="form-control" value="{{ctrl.demande.demandeur}}
+				" readOnly>
+				</div>
+				
+				</div>
+				
+				
+				</div>
+				<div class="row">
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label">status</label>
+				<div class="col-lg-8">
+				<input type="text" class="form-control" value="{{ctrl.demande.status}}" readOnly>
+				
+				</div>
+				
+				</div>
+				</div>
+				<div class="row">
+				<div class="form-group col-lg-12">
+				<label class="col-lg-2 col-form-label">observation</label>
+				<div class="col-lg-10">
+				<textArea  class="form-control" ng-model="ctrl.demande.observation" readOnly>
+				
+				</div>
+				</textarea>
+				</div>
+				</div>
+				
+				
+				</fieldset>
+		
+		
+		
+
+		
+		<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Pieces jointes</legend>
+				<div class="row">
+				<div class="table-responsive col-lg-12">
+				
+				<table class="table">
+				
+				
+				<thead>
+				<tr>
+				<th>libelle</th>
+				<th>lien</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="f in ctrl.pieces">
+				<td>{{f.fileName}}</td>
+				<td><span ng-click="ctrl.openFile(f.fileId)" class="label label-success" >click ici pour ouvrir<span></td>
+				</tr>
+				</tbody>
+				</table>
+				
+				</div>
+				
+				
+				</div>
+				
+				
+				
+				</fieldset>
+		
+		
+		
+		
+	
+		<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Decision</legend>
+				<div class="row">
+				<div class="form-group col-lg-4">
+				<label class="col-lg-5 col-form-label">decision</label>
+				<div class="col-lg-7">
+				<select ng-model="ctrl.demande.decision" class="form-control"
+				ng-options="dec as dec for dec in ctrl.decision track by dec"
+				>
+				
+				<option value=""></option>
+				
+				</select>
+				</div>
+				
+				
+				</div>
+				<div class="form-group col-lg-8">
+				<label  class="col-lg-3 col-form-label">observation</label>
+				<div class="col-lg-9">
+				<textArea  ng-model="ctrl.observation" class="form-control">
+				</textArea>
+				</div>
+				</div>
+				
+				
+				
+				</div>
+				
+				<div class="row">
+				<div class="form-group col-lg-6">
+				<label  class="col-lg-3 col-form-label">signature</label>
+				<div class="col-lg-6">
+				<input type="text" class="form-control" readOnly>
+				
+				</div>
+				
+				</div>
+				
+				</div>
+				
+				
+				</fieldset>
+
+
+		
+
+	</div>
+
+
+	<div class="modal-footer">
+		
+		<button type="submit" ng-disabled="ctrl.isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-send"></span>&nbsp;<span>Envoyer</span>
+		</button>
+	<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="ctrl.close()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Quitter</span>
+		</button>
+	
+	</div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+
+<div class=container>
+
+<div class="row">
+ <div class="col-lg-2">
+					<button class="btn btn-primary" ui-sref="journal.new"  title="Ajoute journal" data-placement="left" data-toggle="popover" data-trigger="hover" data-content="cette boutton permet d'ajouter un nouveau journal">
+						<span class="glyphicon glyphicon-plus"> Ajout</span>
+					</button>
+				</div>
+
+</div>
+  <div class="row">
+     
+       <div class="col-lg-10 col-md-10">
+         <section class="panel">
+                          <header class="panel-heading">
+<!--                              liste des journaux -->
+                          </header>
+                          
+                          <table class="table table-striped table-advance table-hover">
+                          <thead>
+                          <tr>
+                          <th>#</th>
+                          <th>Code</th>
+                          <th>Libelle </th>
+                          <th> Date creation</th>
+                          <th>Actions</th>
+                          
+                          </tr>
+                          </thead>
+                          
+                           <tbody>
+                             
+                              <tr ng-repeat="journal in ctrl.journaux">
+                                 <td>{{$index +1}}</td>
+                                 <td>{{journal.codeJournal}}</td>
+                                  <td>{{journal.libelleJournal}}</td>
+                                  <th>{{journal.dateCreation}}</th>
+                                 <td class="text-left">
+							<div class="btn-group flex-btn-group-container">
+								<button type="submit" 
+									class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-pencil"></span> <span
+										class="hidden-xs hidden-sm"></span>
+								</button>
+								<button class="btn btn-danger btn-sm"
+									ui-sref="journal.delete({id:journal.idJournal})">
+									<span class="glyphicon glyphicon-remove-circle"></span> <span
+										class="hidden-xs hidden-sm"></span>
+								</button>
+							</div>
+						</td>
+                            </tr>
+                           </tbody>
+                        </table>
+                      </section>
+       
+       </div>
+      <script>
+     $(document).ready(function(){
+    	    $('[data-toggle="popover"]').popover();   
+    	});
+
+     </script>
+     
+       
+  
+       
+     </div>
+  

@@ -1,0 +1,46 @@
+<meta charset="utf-8">
+<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+		<h4 class="modal-title" id="myUserLabel"> historique de la demande</h4>
+	</div>
+		
+		<fieldset class="scheduler-border">
+				<legend class="scheduler-border"> Liste des Acteurs</legend>
+<div class="row">
+<div class="table">
+<table class="table-responsive">
+<thead>
+<tr>
+<th>#</th>
+<th>decideur</th>
+<th>decision</th>
+<th>observation</th>
+<th>date decision</th>
+</tr>
+</thead>
+<tbody>
+
+<tr ng-repeat="h in histories">
+<td>{{h.decideur}}</td>
+<td>{{h.decision}}</td>
+<td>{{h.observation}}</td>
+<td>{{h.dateDecision}}</td>
+</tr>
+
+</tbody>
+
+
+</table>
+
+</div>
+
+</div>
+</fieldset>
+<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="ctrl.close()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Quitter</span>
+		</button>
+		
+	</div>

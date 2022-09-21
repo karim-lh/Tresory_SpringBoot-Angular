@@ -1,0 +1,210 @@
+
+<meta charset="utf-8">
+<form name="editForm" role="form" novalidate ng-submit="ctrl.save()"
+	show-validation>
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+		<h4 class="modal-title" id="myUserLabel">Ajout d'une Recette</h4>
+	</div>
+
+	<div class="modal-body">
+	<fieldset class="scheduler-border">
+	<legend class="scheduler-border">Information Mouvement</legend>
+			
+		<div class="row">
+		
+		<div class="form-group col-lg-6 row">
+		
+		
+				<label class="col-lg-4 col-form-label">Numero Mouvement</label> 
+				<div class="col-lg-4">
+				<input class="form-control"
+					type="text" ng-model="ctrl.mouvementRecette.numMouvement">
+				</div>
+				
+			</div>
+
+			<div class="form-group col-lg-6  row">
+				<label class="col-lg-4 col-form-label">Libellé Recette</label>
+				
+				<div class="col-lg-7">
+				 <input class="form-control"
+					type="text" ng-model="ctrl.mouvementRecette.libelleMouvement">
+			</div>
+			</div>
+			
+	</div>
+	<div class="row">		
+			
+			<div class="form-group col-lg-6
+			row ">
+				<label class="col-lg-4 col-form-label">Type Mouvement</label>
+				
+				<div class="col-lg-4">
+				
+			
+				 <input type="text" class="form-control" value="recette" readOnly>
+			</div>
+			</div>
+			
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label">Date Mouvement</label> 
+				<div class="col-lg-6">
+				
+				<input class="form-control"
+					type="date" ng-model="ctrl.mouvementRecette.dateMouvement">
+			</div>
+			</div>
+	
+	</div>
+	<div class="row">	
+		
+		
+		<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label" >Benificiare</label> 
+			<div class="col-lg-6">
+				<select ng-model="ctrl.mouvementRecette.tiers.idTiers" class="col-lg-7 form-control">
+
+					<option ng-repeat="tiers in ctrl.tierss" value="{{tiers.idTiers}}">{{tiers.prenomPersonne
+						+" "+tiers.nomPersonne}}{{tiers.nomSociete}}</option>
+				</select>
+				</div>
+		
+		
+		</div>
+
+	
+			<div class="form-group col-lg-6 row">
+				<label  class="col-lg-4 col-form-label">Compte de Trésorerie</label>
+				
+				<div class="col-lg-8">
+				 <select
+					ng-model="ctrl.mouvementRecette.compteTresorerie.idCompteTresorerie"
+					class="form-control">
+					<option ng-repeat="compte in ctrl.comptes"
+						value="{{compte.idCompteTresorerie}}">{{compte.libelle}}</option>
+				</select>
+			</div>
+			</div>
+			
+			</div>
+		<div class="row">
+			
+			
+			<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label">Flux</label> 
+				
+				<div class="col-lg-8">
+				<select
+					ng-model="ctrl.mouvementRecette.fluxTresorerie.idFluxTresorerie"
+					class="form-control">
+					<option ng-repeat="f in ctrl.fluxs" value="{{f.idFluxTresorerie}}">{{f.libelleFluxTresorerie}}</option>
+				</select>
+			</div>
+     
+</div>
+	
+			<div class="form-group col-lg-6 row">
+				<label  class="col-lg-4 col-form-label">Montant HT</label> 
+				<div class="col-lg-4">
+				
+				<input type="text"
+					ng-model="ctrl.mouvementRecette.montantHT"
+					class="form-control">
+			</div>
+			</div>
+			</div>
+		<div class="row">
+			
+			
+			
+				<div class="form-group col-lg-6 row">
+				<label class="col-lg-4 col-form-label" >Montant Taxe</label> 
+				<div class="col-lg-4">
+				
+				<input type="text"
+					ng-model="ctrl.mouvementRecette.montantTaxe"
+					class="form-control">
+			</div>
+			</div>
+			
+			
+			<div class="form-group  col-lg-6 row">
+				<label  class="col-lg-4 col-form-label">Devise</label>
+				<div class="col-lg-6">
+				
+				 <select
+					ng-model="ctrl.mouvementRecette.devise.idDevise"
+					class="form-control">
+					<option ng-repeat="devise in ctrl.devises"
+						value="{{devise.idDevise}}">{{devise.libelleDevise}}</option>
+				</select>
+			</div>
+</div>
+</div>
+		<div class="row">
+
+
+			<div class="form-group col-lg-6 row">
+				<label  class="col-lg-4 col-form-label">Taux de Change</label>
+				<div class="col-lg-3">
+				
+				 <input type="text"
+					ng-model="ctrl.mouvementRecette.tauxChangeMouvement"
+					class="form-control">
+			</div>
+</div>
+		</div>
+
+</fieldset>
+
+<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Observation</legend>
+		<div class="row">
+			<div class="form-group col-lg-11">
+				<label  class="col-lg-3 col-form-label">Observation</label>
+				<div class="col-lg-8">
+				 <textArea 
+					ng-model="ctrl.demande.observation"
+					class="form-control"></textarea>
+			</div>
+   </div>
+		</div>
+</fieldset>
+
+<fieldset class="scheduler-border">
+				<legend class="scheduler-border">Pieces Jointes</legend>
+		<div class="row">
+			<div class="form-group col-lg-4">
+				<label  class="col-lg-4 col-form-label">piece jointe</label> 
+				<div class="col-lg-7">				<input
+					id="input-2" name="input2[]" type="file" valid-file  class="form-control-file" 
+					data-show-upload="false" data-show-caption="true" ng-model="myFile">
+			</div>
+</div>
+
+
+		</div>
+
+</fieldset>
+
+
+
+	</div>
+
+	<div class="modal-footer">
+		
+		<button type="submit" ng-disabled="ctrl.isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-send"></span>&nbsp;<span>Envoyer</span>
+		</button>
+		
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="ctrl.cancel()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Quitter</span>
+		</button>
+	</div>
+</form>
+

@@ -1,0 +1,69 @@
+<meta charset="utf-8">
+<div class="container">
+	<div class="row">
+ <div class="col-lg-2">
+					<button class="btn btn-primary" ui-sref="recette.reglement.new" >
+						<span class="glyphicon glyphicon-plus"> nouvelle</span>
+					</button>
+				</div>
+
+</div>
+  <div class="row">
+     
+       <div class="col-lg-10 col-md-10">
+         <section class="panel">
+                          <header class="panel-heading">
+<!--                              liste des bs des comptes -->
+                          </header>
+                          
+                          <table class="table table-striped table-advance table-hover">
+                          <thead>
+                          <tr>
+                          <th>#</th>
+                          <th>num</th>
+                          <th>Date creation reglement </th>
+                          <th> libelle mouvement</th>
+                          <th>montant mouvement</th>
+                          <th>montant reglement</th>
+                          <th>devise</th>
+                          <th>Actions</th>
+                          
+                          </tr>
+                          </thead>
+                          
+                           <tbody>
+                             
+                              <tr ng-repeat="reglement in ctrl.reglements">
+                                 <td>{{$index +1}}</td>
+                                <td>{{reglement.idPieceMvt}}</td>
+                                <td>{{reglement.dateCreationPieceMVt}}</td>
+						   <td>{{reglement.mouvementTresorerie.libelleMouvement}}</td>
+							<td>{{reglement.mouvementTresorerie.montantTaxe |number :3 }}</td>
+							<td>{{reglement.montantdeviseLocal |number :3 }}</td>
+							<td>{{reglement.mouvementTresorerie.devise.libelleDevise}}</td>
+ 
+                                
+                                
+                                 <td class="text-left">
+							<div class="btn-group flex-btn-group-container">
+								<button type="submit" 
+									class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-pencil"></span> <span
+										class="hidden-xs hidden-sm"></span>
+								</button>
+								<button class="btn btn-danger btn-sm"
+									ui-sref="b.delete({id:b.idBanque})">
+									<span class="glyphicon glyphicon-remove-circle"></span> <span
+										class="hidden-xs hidden-sm"></span>
+								</button>
+							</div>
+						</td>
+                            </tr>
+                           </tbody>
+                        </table>
+                      </section>
+       
+       </div>
+     
+
+</div>
